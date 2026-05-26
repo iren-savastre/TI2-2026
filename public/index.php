@@ -22,6 +22,7 @@ require_once URL_BASE . "/model/guestbookModel.php";
  * le mode fetch à tableau associatif
  */
 
+
 /*
  * Si le formulaire a été soumis
  */
@@ -34,6 +35,20 @@ require_once URL_BASE . "/model/guestbookModel.php";
 
 // sinon, on affiche un message d'erreur
 
+try {
+    $db = new PDO(
+        dsn:      MARIA_DSN,
+        username: DB_CONNECT_USER,
+        password: DB_CONNECT_PWD,
+        options: [
+            // Affiche les erreurs SQL clairement (indispensable en développement)
+            PDO::ATTR_ERRMODE          => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ]
+    );
+} catch (Exception $e) {
+    die("Erreur de connexion : " . $e->getMessage());
+}
 /*
  * On récupère les messages du livre d'or
  */
@@ -63,3 +78,4 @@ require_once URL_BASE . "/model/guestbookModel.php";
 include URL_BASE . "/view/guestbookView.php";
 
 // fermeture de la connexion (bonne pratique)
+$db = null;

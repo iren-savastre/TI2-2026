@@ -38,22 +38,35 @@
    Si TOUS les champs sont valides, afficher un message EN VERT et envoyer
    le formulaire (qui sera traité par PHP — voir partie 3).
 
-   --- RÈGLES DE VALIDATION ---
+   --- RÈGLES DE VALIDATION ---*/
 
-   1) Nom et Prénom
-      - Champs obligatoires (non vides)
-      - Au moins 2 caractères
+  //  1) Nom et Prénom
+      // - Champs obligatoires (non vides)
+      // - Au moins 2 caractères
+    username: /^[a-zA-Z0-9_-]{3,16}$/,
 
-   2) Email
+        var fullName = $('#full_name').val().trim();
+        if (fullName.length < 5 || fullName.length > 120) {
+             $('#full_name').after('<p class="error error-js">Nom : entre 5 et 120 caractères</p>');
+            valid = false;
+        }
+  /* 2) Email
       - Champ obligatoire
       - Doit respecter le format d'une adresse email valide
-        (utiliser une expression régulière — regex)
+        (utiliser une expression régulière — regex)*/
 
-   3) Code postal belge
+var email = $('#email').val().trim();
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email) || email.length > 120) {
+            $('#email').after('<p class="error error-js">Email invalide ou trop long (max 120 caractères)</p>');
+            valid = false;
+        }
+
+  /* 3) Code postal belge
       - 4 chiffres exactement
-      - Compris entre 1000 et 9999
+      - Compris entre 1000 et 9999*/
 
-   4) Numéro de téléphone belge
+  /* 4) Numéro de téléphone belge
       - Doit accepter les formats suivants :
           • 0470123456
           • 0470 12 34 56
@@ -71,10 +84,19 @@
    - Tous les messages d'erreur s'affichent dans la zone #messages,
      en haut du formulaire.
    - Couleur rouge pour les erreurs, couleur verte pour le succès.
-   - Vider la zone à chaque nouvelle tentative d'envoi.
+   - Vider la zone à chaque nouvelle tentative d'envoi.*/
+   var text = $('#text_comment').val().trim();
+        if (text.length < 5 || text.length > 1000) {
+            $('#text_comment').after('<p class="error error-js">Commentaire : entre 5 et 1000 caractères</p>');
+            valid = false;
+        }
+
+        if (!valid) {
+            e.preventDefault();
+        }
 
    ============================================================================
-   PARTIE 3 — TRAITEMENT CÔTÉ PHP
+  /* PARTIE 3 — TRAITEMENT CÔTÉ PHP
    ============================================================================
 
    Si tous les champs sont valides, le formulaire est envoyé à un script PHP.

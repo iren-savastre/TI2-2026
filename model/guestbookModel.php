@@ -3,10 +3,14 @@
 /********************************
  * Model de la page livre d'or
  *******************************/
-
+function addGuestbook(PDO $DB, string $firstname, string $lastname, string $usermail, string $phone, $postecode, $message): void 
 // INSERTION d'un message dans le livre d'or
+  $sql = "INSERT INTO `commentaire` (`firstname`, `lastname`, `usermail`, `postcode`, 'phone','message')
+            VALUES (:firstname, :lastname, :usermail, :postcode, :phone, :message)";
 
+    $prepare = $con->prepare($sql);
 /**
+
  * @param PDO $db
  * @param string $firstname
  * @param string $lastname
@@ -15,6 +19,7 @@
  * @param string $postcode
  * @param string $message
  * @return bool
+ 
  * Fonction qui insère un message dans la base de données 'ti2web2026' et sa table 'guestbook'
  * Renvoie true si l'insertion a réussi, false sinon
  * Une requête préparée est utilisée pour éviter les injections SQL
