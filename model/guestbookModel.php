@@ -22,8 +22,12 @@ function addGuestbook(PDO $DB, string $firstname, string $lastname, string $user
  
  * Fonction qui insère un message dans la base de données 'ti2web2026' et sa table 'guestbook'
  * Renvoie true si l'insertion a réussi, false sinon
- * Une requête préparée est utilisée pour éviter les injections SQL
- * Les données sont échappées pour éviter les injections XSS (protection backend)
+ * Une requête préparée est utilisée pour éviter les injections SQL*/
+  $sql = "INSERT INTO `commentaire` (`email`, `full_name`, `title`, `text_comment`)
+            VALUES (?, ?, ?, ?)";
+
+    $prepare = $con->prepare($sql);
+//  * Les données sont échappées pour éviter les injections XSS (protection backend)
  */
 function addGuestbook(PDO $db,
                     string $firstname,
@@ -39,6 +43,8 @@ function addGuestbook(PDO $db,
     // si pas de données complètes ou ne correspondant pas à nos attentes, on renvoie false
     return false;
     // requête préparée obligatoire !
+
+     $prepare->execute();
 
     // si l'insertion a réussi
     // on renvoie true

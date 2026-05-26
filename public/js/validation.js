@@ -43,6 +43,8 @@
   //  1) Nom et Prénom
       // - Champs obligatoires (non vides)
       // - Au moins 2 caractères
+      const REGEX = {
+        
     username: /^[a-zA-Z0-9_-]{3,16}$/,
 
         var fullName = $('#full_name').val().trim();
@@ -95,7 +97,7 @@ var email = $('#email').val().trim();
             e.preventDefault();
         }
 
-   ============================================================================
+  //  ============================================================================
   /* PARTIE 3 — TRAITEMENT CÔTÉ PHP
    ============================================================================
 

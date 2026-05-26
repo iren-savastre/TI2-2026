@@ -20,8 +20,13 @@
  <div id="logo">
             <img src="/public/img/logoCF2M.png" alt="Logo CF2m">
         </div>
+        <div class="admini">
+            <p>Administration</p>
+           
+        </div>
 </nav>
 <!-- Formulaire d'ajout d'un message -->
+ <main>
 
 <form id="formulaire" class="contact-form" action="#" method="post">
         <label for="nom">Nom</label>
@@ -46,7 +51,7 @@
         <input type="message" name="message" rows="6" placeholder="Un petit mot...">
         <p>0/300 caractères</p>
        
-        <input type="checkbox" id="consentement" required>   
+        <input id="stockage" type="checkbox" id="consentement" required>   
          <label for="consentement">J'accepte le stockage de mes données personnelles.</label>
         
 
@@ -59,12 +64,13 @@
     <p id="welcomeMsg">Connexion réussie !</p>
     <button class="logout" id="logoutBtn">Se déconnecter</button>
 </div>
+
 <!-- Si pas de message -->
-<h3>Pas encore de message</h3>
+<!-- <h3>Pas encore de message</h3> -->
 <!-- Si 1 message -->
-<h3>Il y a 1 message</h3>
+<!-- <h3>Il y a 1 message</h3> -->
 <!-- Si plusieurs messages -->
-<h3>Il y a X messages</h3>
+<!-- <h3>Il y a X messages</h3> -->
 
 <!-- Pagination (BONUS) -->
 
@@ -95,6 +101,7 @@ var_dump($_GET);
 
 <script src="js/validation.js"></script>
 <script src="script.js"></script>
+</main>
 </body>
 </html>
 
