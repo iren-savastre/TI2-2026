@@ -21,10 +21,11 @@ nav{
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  
 }
-
-nav h1,p{
+#admini{
+  text-align: center;
+}
+ h1,p{
   text-align: center;
 }
 .stockage{
