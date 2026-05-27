@@ -1,126 +1,149 @@
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #204b6d;
-  margin: 0;
-  padding: 2rem;
-  color: white;
+
+
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* gauche - centre - droit */
+    align-items: center;
+    padding: 20px;
+    background: #f5f5f5; /*le found ou c'est le logo, Livre d'or et administration*/
+    border-bottom: 2px solid #e42b2b; /* borseur en rouge dans le nav, en bas*/
 }
-#logo{
- text-align: left;
- border-radius: 20px;
- margin:10px;
- width: 150px;
+
+/* gauche */
+.nav-left img {
+    height: 60px;
 }
-#logo img{
-  display: block;
-  border-radius: 20px;
-  margin: 0 auto;
+
+/* Centre */
+.nav-center {
+    text-align: center;
 }
-nav{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
+
+.nav-center h1 {
+    margin: 0;
+    font-size: 2rem;
 }
-#admini{
-  text-align: center;
+
+.nav-center p {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.8;
 }
- h1,p{
-  text-align: center;
+
+/* droit */
+.nav-right {
+    text-align: right;
 }
-.stockage{
-  text-align: left;
+
+.nav-right img {
+    height: 50px;
 }
+
+
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav-left,
+    .nav-center,
+    .nav-right {
+        text-align: center;
+    }
+
+    .nav-right img {
+        margin-top: 5px;
+    }
+}
+
+
+/* Formulaire */
+
 .contact-form {
-  width: 100%;
-  max-width: 900px;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  background-color: #86abf7;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(238, 125, 125, 0.3);
-}
-
-.contact-form label {
-  width: 100%;
-  font-weight: bold;
-  color: #f5f6fa;
-}
-
-.contact-form input{
-  width: 100%;
-  padding: 0.9rem;
-  border: none;
-  border-radius: 8px;
-  background-color: #353b48;
-  color: #f5f6fa;
-  font-size: 1rem;
-  transition: background-color 0.3s;
-}
-
-.contact-form input:focus{
-  background-color: #40739e;
-  outline: none;
-}
-
-.contact-form button {
-  background-color: #4e99be;
-  border: none;
-  border-radius: 8px;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    gap: 20px;
 }
 
 
-.contact-form button:hover {
-  background-color: #0097e6;
+.form-group {
+    display: flex;
+    flex-direction: column;
 }
+
+/* des etiquete */
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input */
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #84af0c; /* les bordeurs en vert */
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* Message d'erreur */
+.erreur-message {
+    color: #b00020;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+
+.form-group.checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.btn-submit,
+button[type="submit"] {
+    padding: 12px 20px;
+    background: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background: #005fa3;
+}
+
 
 @media (min-width: 768px) {
-  .contact-form {
-    flex-direction: row; 
-  }
+    .contact-form {
+        grid-template-columns: 1fr 1fr;
+    }
 
-  .contact-form label[for="nom"],
-  .contact-form label[for="prenom"],
-  #nom,
-  #prenom {
-    width: calc(50% - 0.75rem);
-  }
 
-  .contact-form label[for="email"],
-  #email,
-  .contact-form label[for="message"],
-  #message,
-  .contact-form button {
-    width: 100%;
-  }
+    /* le message et checkbox-ul occupe tt la largeur */
+    #message,
+    #message-counter,
+    .form-group.checkbox,
+    button[type="submit"] {
+        grid-column: span 2;
+    }
 }
-.erreur-message{
-    color: red;
+
+/* Mobil → 1 coloană */
+@media (max-width: 480px) {
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
 }
-.btn-retour{
-    text-decoration: none;
-    color: white;
-    padding: 10px 30px;
-    background-color: #00a8ff;
-    border-radius: 10px;
-}
-.btn-retour:hover{
-    transform: scale(1.1);
-    box-shadow: 5px 5px 10px white;
-}
-.titre-container{
-    height: 400px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
- 

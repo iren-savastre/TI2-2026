@@ -117,15 +117,30 @@ var email = $('#email').val().trim();
    Créer un bouton qui permet de basculer entre deux thèmes :
 
      ☀️ Mode clair  → body avec fond BLANC
-     🌙 Mode sombre → body avec fond NOIR
+     🌙 Mode sombre → body avec fond NOIR */
 
-   COMPORTEMENT DU BOUTON :
-   - Le texte du bouton change dynamiquement :
-       • "🌙 Dark Mode"  quand on est en mode clair (clic = passer en sombre)
-       • "☀️ White Mode" quand on est en mode sombre (clic = passer en clair)
-   - L'icône doit correspondre au mode vers lequel on bascule.
+     /* COMPORTEMENT DU BOUTON :
+     - Le texte du bouton change dynamiquement :
+     • "🌙 Dark Mode"  quand on est en mode clair (clic = passer en sombre)
+     • "☀️ White Mode" quand on est en mode sombre (clic = passer en clair)
+     - L'icône doit correspondre au mode vers lequel on bascule.*/
+     
+     $(document).ready(function () {
 
-   IMPLÉMENTATION SUGGÉRÉE :
+      
+
+   $("#btnDark").click(function () {
+    $("body").toggleClass("dark");
+    if ($("body").hasClass("dark")) {
+      $(this).text("☀️ Light Mode");
+    } else {
+      $(this).text("🌙 Dark Mode");
+    }
+  });
+
+
+  
+   /*IMPLÉMENTATION SUGGÉRÉE :
    - Utiliser une classe CSS (ex : .dark-mode) sur le <body>.
    - Faire le toggle de cette classe en jQuery avec .toggleClass().
    - Mettre à jour le texte du bouton après chaque toggle.

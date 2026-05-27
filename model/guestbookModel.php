@@ -104,13 +104,23 @@ function getNbTotalGuestbook(PDO $db): int
  * de la page courante
  */
 function getGuestbookPagination(PDO $db, int $pageActu=1, int $limit=5): array
+
 {
+    try {
+        $offset = ($pageActu - 1) * $limit;
     // Requête préparée obligatoire !
+     $sql = "SELECT * FROM `guestbook` ORDER BY `date` ASC LIMIT :limit OFFSET :offset";
+        $prepare = $db->prepare($sql);
     // Le $offset et le $limit sont des entiers, il faut donc les passer
     // en paramètres de la requête préparée en tant qu'entiers !
     // si la requête a réussi,
     // bonne pratique, fermez le curseur
+     $prepare = null;
     // renvoyer le tableau de(s) message(s) (vide si pas de résultats)
+      return $messages;
+    } catch (Exception $e) {
+        return [];
+    }
     return [];
 }
 

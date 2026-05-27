@@ -14,50 +14,78 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-    <nav>
-<h1>TI2 | Livre d'or</h1>
- <p>Laissez une trace de votre passage !</p>
- <div id="logo">
-            <img src="/public/img/logoCF2M.png" alt="Logo CF2m">
-        </div>
-        <div class="admini">
-            <p>Administration</p>
-           
-        </div>
+    
+<nav class="navbar">
+
+    <div class="nav-left">
+        <img src="/public/img/logoCF2M.png" alt="Logo CF2m">
+    </div>
+
+    <div class="nav-center">
+        <h1>TI2 | Livre d'or</h1>
+        <p>Laissez une trace de votre passage !</p>
+    </div>
+
+    <div class="nav-right">
+        <p>Administration</p>
+        
+    </div>
+
+      <div>
+   
+      <button id="btnDark">🌙 Dark Mode</button>
+     
+    </div>
+    
+
 </nav>
+
 <!-- Formulaire d'ajout d'un message -->
  <main>
+<form id="formulaire" class="contact-form" method="post">
 
-<form id="formulaire" class="contact-form" action="#" method="post">
+    <div class="form-group">
         <label for="nom">Nom</label>
-        <input id="nom" name="nom" placeholder="Ex: Irina" required>
+        <input id="nom" name="nom" type="text" placeholder="Ex: Savastre" required>
+    </div>
 
-         <label for="prenom">Prénom</label>
-         <input type="prenom" name="prenom" placeholder="Ex: Irina">
-       
-         <label for="email">E-mail</label>
-        <input id="email" name="email" placeholder="irina.savastre@example.com" required>
+    <div class="form-group">
+        <label for="prenom">Prénom</label>
+        <input id="prenom" name="prenom" type="text" placeholder="Ex: Irina" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" placeholder="irina@example.com" required>
         <p class="erreur-message" id="error-mail"></p>
-        
+    </div>
+
+    <div class="form-group">
         <label for="post">Code Postal</label>
-        <input id="post" name="post" placeholder="Ex: 1000" required>
+        <input id="post" name="post" type="text" placeholder="Ex: 1000" required>
         <p class="erreur-message" id="error-post"></p>
-       
+    </div>
+
+    <div class="form-group">
         <label for="telephone">Téléphone</label>
-        <input id="telephone" name="telephone" placeholder="+32423 45 67 89" required>
+        <input id="telephone" name="telephone" type="text" placeholder="+32 470 12 34 56" required>
         <p class="erreur-message" id="error-phone"></p>
+    </div>
 
+    <div class="form-group">
         <label for="message">Message</label>
-        <input type="message" name="message" rows="6" placeholder="Un petit mot...">
-        <p>0/300 caractères</p>
-       
-        <input id="stockage" type="checkbox" id="consentement" required>   
-         <label for="consentement">J'accepte le stockage de mes données personnelles.</label>
-        
+        <textarea id="message" name="message" rows="5" maxlength="300" placeholder="Un petit mot..." required></textarea>
+        <p id="message-counter">0/300 caractères</p>
+    </div>
 
-         
-        <button type="submit">Envoyer le message</button>
-    </form>
+    <div class="form-group checkbox">
+        <input id="stockage" type="checkbox" required>
+        <label for="stockage">J'accepte le stockage de mes données personnelles.</label>
+    </div>
+
+    <button type="submit" class="btn-submit">Envoyer le message</button>
+
+</form>
 
     <div id="welcome" class="auth-box">
     <h2>Bienvenue 🎉</h2>

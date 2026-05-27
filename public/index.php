@@ -26,11 +26,23 @@ require_once URL_BASE . "/model/guestbookModel.php";
 /*
  * Si le formulaire a été soumis
  */
+$message_erreur = "";
+$message_succes = "";
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // on appelle la fonction d'insertion dans la DB (addGuestbook())
+    $firstname = $_POST['firstname'] ?? "";
+    $lastname = $_POST['lastname'] ?? "";
+    $usermail = $_POST['usermail'] ?? "";
+    $phone = $_POST['phone'] ?? "";
+    $postcode = $_POST['postcode'] ?? "";
+    $message = $_POST['message'] ?? "";
+    
+    $result = addGuestbook($db, $firstname, $lastname, $usermail, $phone, $postcode, $message);
 // on appelle la fonction d'insertion dans la DB (addGuestbook())
 
 // si l'insertion a réussi
-
+ if ($result) {
 // on redirige vers la page actuelle (ou on affiche un message de succès)
 
 // sinon, on affiche un message d'erreur
@@ -68,6 +80,10 @@ try {
 # pour obtenir le $offset pour les messages (calcul)
 
 # on veut récupérer les messages de la page courante
+    $messages = getGuestbookPagination($db, $page_actuelle, PAGINATION_NB);
+} else {
+    $messages = [];
+}
 
 /**************************
  * Fin du Bonus Pagination
