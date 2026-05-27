@@ -139,6 +139,20 @@ var email = $('#email').val().trim();
   });
 
 
+
+  $(document).ready(function () {
+  $("#dark-btn").click(function () {
+    if ($("body").hasClass("dark")) {
+      $("body").removeClass("dark");
+      $(".card").removeClass("dark");
+      $("#dark-btn").text("Dark Mode");
+    } else {
+      $("body").addClass("dark");
+      $(".card").addClass("dark");
+      $("#dark-btn").text("Light Mode");
+    }
+  });
+
   
    /*IMPLÉMENTATION SUGGÉRÉE :
    - Utiliser une classe CSS (ex : .dark-mode) sur le <body>.

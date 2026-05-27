@@ -30,11 +30,9 @@
         <p>Administration</p>
         
     </div>
-
-      <div>
-   
-      <button id="btnDark">🌙 Dark Mode</button>
-     
+    
+    <div>
+          <button class="btn" id="dark-btn"> 🌙Dark Mode</button>
     </div>
     
 
@@ -90,7 +88,7 @@
     <div id="welcome" class="auth-box">
     <h2>Bienvenue 🎉</h2>
     <p id="welcomeMsg">Connexion réussie !</p>
-    <button class="logout" id="logoutBtn">Se déconnecter</button>
+    
 </div>
 
 <!-- Si pas de message -->
@@ -103,7 +101,8 @@
 <!-- Pagination (BONUS) -->
 
 <!-- Liste des messages -->
-<ul>
+ <div  class="messages">
+   <ul>
     <li>
         <p><strong>firstname lastname</strong></p>
         <p><em>datemessage</em></p>
@@ -116,6 +115,8 @@
         <p>message</p>
     </li>
 </ul>
+</div>
+<br>
 etc ...
 <!-- Pagination (BONUS) -->
 <?php
@@ -126,6 +127,7 @@ var_dump($_POST);
 echo '<p>$_GET</p>';
 var_dump($_GET);
 ?>
+
 
 <script src="js/validation.js"></script>
 <script src="script.js"></script>
